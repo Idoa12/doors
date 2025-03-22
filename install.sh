@@ -1,13 +1,16 @@
 #!/bin/bash
 
-echo "Installing Mysterious Door Viewer..."
+echo "Installing showdoor..."
 
-# Copy doors to hidden location
+# Create hidden doors directory
 mkdir -p "$HOME/.doors"
-cp .doors/*.png "$HOME/.doors"
 
-# Make the command available globally
-chmod +x showdoor.sh
-sudo ln -sf "$PWD/showdoor.sh" /usr/local/bin/showdoor
+# Copy all PNGs into ~/.doors
+cp .doors/*.png "$HOME/.doors/"
 
-echo "Done! Try it with: showdoor or showdoor --list"
+# Copy and install the script
+cp showdoor.sh /usr/local/bin/showdoor
+chmod +x /usr/local/bin/showdoor
+
+echo "Installation complete. You can now run 'showdoor'."
+
